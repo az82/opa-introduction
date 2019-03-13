@@ -76,6 +76,17 @@ Multiple bodies are ORed:
 allow {true;false}{true}
 ```
 
+Remember, everything is a rule:
+
+```rego
+y { x = 5 }
+y
+# -> true, because the rules allow a configuration where `x=5`
+x = 2
+y
+# -> false, because y can't be 2 and 5 at the same time
+```
+
 ## See also
 
 - Prolog on Wikipedia:[en.wikipedia.org/wiki/Prolog](https://en.wikipedia.org/wiki/Prolog)
